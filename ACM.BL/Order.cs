@@ -6,10 +6,21 @@ namespace ACM.BL
 {
     class Order
     {
-        public int OrderDate { get; set; }
+        public Order()
+        {
+
+        }
+
+        public Order(int orderId)
+        {
+            OrderId = orderId;
+        }
+
+        public DateTimeOffset? OrderDate { get; set; }
+        public int OrderId { get; private set; }
 
 
-        public Order Receive()
+        public Order Receive(int orderId)
         {
             // retrieval code
             return new Order();
@@ -23,8 +34,11 @@ namespace ACM.BL
 
         public bool Validate()
         {
-            // Validation code
-            return true;
+            var isValid = true;
+
+            if (OrderDate == null) isValid = false;
+
+            return isValid;
         }
     }
 }

@@ -6,12 +6,23 @@ namespace ACM.BL
 {
     class OrderItem
     {
-        public string Product { get; set; }
+        public OrderItem()
+        {
+
+        }
+
+        public OrderItem(int orderItemId)
+        {
+           OrderItemId = orderItemId;
+        }
+
+        public int ProductId { get; set; }
         public int Quantity { get; set; }
-        public double PurchasePrice { get; set; }
+        public decimal? PurchasePrice { get; set; }
+        public int OrderItemId { get; private set; }
 
 
-        public OrderItem Retrieve()
+        public OrderItem Retrieve(int orderItemId)
         {
             // Retrieval code
             return new OrderItem();
@@ -25,8 +36,13 @@ namespace ACM.BL
 
         public bool Validate()
         {
-            // Validation code
-            return true;
+            var isValid = true;
+
+            if (Quantity <= 0) isValid = false;
+            if (ProductId <= 0) isValid = false;
+            if (PurchasePrice == null) isValid = false;
+
+            return isValid;
         }
     
     }
