@@ -5,7 +5,7 @@ namespace ACM.BL
 {
     public class Customer
     {
-        public Customer()
+        public Customer(): this(0)
         {
 
         }
@@ -13,8 +13,12 @@ namespace ACM.BL
         public Customer(int customerId)
         {
             CustomerId = customerId;
+            AddressList = new List<Address>();
         }
+
+        public List<Address> AddressList { get; set; }
         public int CustomerId { get; private set; }
+        public int CustomerType { get; set; }
         public string EmailAddress { get; set; }
         public string FirstName { get; set; }
         public string FullName
@@ -48,26 +52,8 @@ namespace ACM.BL
             }
         }
 
-        public Customer Retrieve(int customerID)
-        {
-            // Code that retrieves the defined customer
+        public override string ToString() => ProductName;
 
-            return new Customer();
-        }
-
-        public List<Customer> Retrieve()
-        {
-            // Code that retrieves all of the customers
-
-            return new List<Customer>();
-        }
-            
-        public bool Save()
-        {
-            // Code that saves the defined customer
-
-            return true;
-        }
 
         public bool Validate()
         {

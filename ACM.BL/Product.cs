@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ACM.BL
 {
-    class Product
+    public class Product
     {
         public Product()
         {
@@ -21,19 +21,7 @@ namespace ACM.BL
         public decimal? CurrentPrice { get; set; }
         public int ProductId { get; private set; }
 
-        
-
-        public Product Retrieve(int productId)
-        {
-            // retrieval code
-            return new Product();
-        }
-
-        public bool Save()
-        {
-            // saving code
-            return true;
-        }
+        public override string ToString() => ProductName;
 
         public bool Validate()
         {
