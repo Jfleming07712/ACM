@@ -52,7 +52,7 @@ namespace ACM.BL
             }
         }
 
-        public override string ToString() => ProductName;
+        public override string ToString() => FullName;
 
 
         public bool Validate()
